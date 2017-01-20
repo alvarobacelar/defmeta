@@ -1,0 +1,57 @@
+<%= simple_nested_form_for(meta) do |f| %>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <% if meta.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(meta.errors.count, "erro") %></h2>
+
+      <ul>
+        <% meta.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+    <% end %>
+    <div class="row">
+      <%= f.input :nome, wrapper_html: {class: 'col-md-12'}, input_html: { :disabled => true} %>
+    </div>
+    <div class="row">
+      <%= f.association :tipo, collection: Tipo.all.order('nome') , label_method: :nome, wrapper_html: {class: 'col-md-3'}, input_html: { :disabled => true} %>
+      <%= f.association :dificuldade, collection: Dificuldade.all.order('nome'), label_method: :nome, wrapper_html: {class: 'col-md-3'}, input_html: { :disabled => true} %>
+      <%= f.association :ganho, collection: Ganho.all.order('nome'), label_method: :nome, wrapper_html: {class: 'col-md-3'}, input_html: { :disabled => true} %>
+      <%= f.association :usuario, collection: Usuario.all.order('nome'), label_method: :nome, wrapper_html: {class: 'col-md-3'}, input_html: { :disabled => true} %>
+    </div>
+
+    <%= f.simple_fields_for :detalhamentos do |i| %>
+    <div class="row">
+      <div class="col-sm-10">
+        <%= i.hidden_field :meta_id %>
+
+        <%= i.input :item, wrapper_html: {class: 'col-md-6'}%>
+
+        <%= i.link_to_remove class: "btn btn-danger btn-xs" do %>
+        <i class="zmdi zmdi-delete"></i> Remove
+        <% end %>
+      </div>
+    </div>
+    <% end %>
+    <div class="row">
+      <div class="col-sm-10 p-10">
+        <%= f.link_to_add :detalhamentos, class: "btn btn-success" do%>
+        <i class="zmdi zmdi-plus-circle"></i> Adicionar item
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="panel-footer">
+    <%= f.submit "Salvar", class: 'btn btn-primary' %> ou
+    <%= link_to "Cancelar", :back, class: 'btn btn-default' %>
+    <%#= link_to "Apagar", @meta,
+    method: :delete,
+    class: 'btn btn-danger pull-right',
+      data: { confirm: 'Tem certeza que quer apagar?' } if @meta.persisted? %>
+    </div>
+  </div>
+  <% end %>

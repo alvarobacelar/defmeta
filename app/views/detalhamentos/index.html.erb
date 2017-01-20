@@ -1,0 +1,26 @@
+<div class="page-header">
+  <h1>Detalhamentos</h1>
+  <%= link_to "Novo Detalhamento", new_detalhamento_path, class: 'btn btn-primary' %>
+</div>
+
+<div class="panel panel-default">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Descrição</th>
+        <th>Data cadastro</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @detalhamentos.each do |detalhamento| %>
+        <tr>
+          <td><%= link_to detalhamento.descricao, detalhamento %></td>
+          <td><%= l detalhamento.created_at, format: :xshort %></td>
+          <td><%= link_to 'Editar', edit_detalhamento_path(detalhamento), class: 'btn btn-default btn-xs' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

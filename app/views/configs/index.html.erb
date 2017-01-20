@@ -1,0 +1,30 @@
+<div class="page-header">
+  <h1>Configs</h1>
+  <%= link_to "Novo Config", new_config_path, class: 'btn btn-primary' %>
+</div>
+
+<div class="panel panel-default">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Valor Ganho</th>
+        <th>Valor Tipo</th>
+        <th>Valor Dificuldade</th>
+        <th>Data de cadastro</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @configs.each do |config| %>
+        <tr>
+          <td><%= link_to config.valor_ganho, config %></td>
+          <td><%= link_to config.valor_tipo, config %></td>
+          <td><%= link_to config.valor_dificuldade, config %></td>
+          <td><%= l config.created_at, format: :long %></td>
+          <td><%= link_to 'Editar', edit_config_path(config), class: 'btn btn-default btn-xs' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

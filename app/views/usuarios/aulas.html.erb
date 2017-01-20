@@ -1,0 +1,74 @@
+<div class="clearfix"></div>
+
+<h2>Conferência de Aulas de <%= @inicio.strftime '%m/%y' %> </h2>
+<p>
+Professor: <%= @usuario.nome %>
+</p>
+
+<div class="row">
+  <div class="col-md-8">
+    <div class="panel panel-default">
+      <table class="table table-bordered table-striped">
+        <tr>
+          <th>Dia</th>
+          <th>Turma</th>
+          <th>Aula ministrada?</th>
+        </tr>
+      <% @aulas.each do |aula| %>
+        <tr>
+          <td width="80px">
+            <%= link_to aula do %>
+              <%= l aula.data, format: '%d - %a' %>
+            <% end %>
+          </td>
+          <td><%= aula.turma.nome_com_horario %></td>
+          <td>
+            <%= aula.aula_ministrada ? 'Sim.' : 'Não.' %>
+            <%= 'Feriado.'   if aula.feriado %>
+            <%= 'Cancelada: ' + aula.motivo_cancelamento if not aula.motivo_cancelamento.blank? %>
+          </td>
+        </tr>
+      <% end %>
+      </table>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <table class="table table-bordered">
+        <tr>
+          <th>Ministradas</th>
+          <td><%= @aulas.ministradas.count %></td>
+        </tr>
+        <tr>
+          <th>Feriados</th>
+          <td><%= @aulas.feriados.count %></td>
+        </tr>
+        <tr>
+          <th>Canceladas</th>
+          <td><%= @aulas.canceladas.count %></td>
+        </tr>
+        <tr>
+          <th>TOTAL</th>
+          <td><%= @aulas.ministradas.count + @aulas.feriados.count %></td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="panel panel-warning">
+      <div class="panel-heading">
+        Dica
+      </div>
+      <div class="panel-body">
+        <p>
+        Esse relatório apresenta apenas as aulas
+        cujo o professor foi registrado para 
+        o professor <%= @usuario.nome %>.
+        </p>
+        <p>
+        Caso o cadastro da aula esteja com o campo
+        "Professor" vazio, ela não será contabilizada aqui.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

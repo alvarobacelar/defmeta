@@ -1,0 +1,28 @@
+<div class="page-header">
+  <h1>Definição de dificuldades</h1>
+  <%= link_to "Novo Dificuldade", new_dificuldade_path, class: 'btn btn-primary' %>
+</div>
+
+<div class="panel panel-default">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Dificuldades</th>
+        <th>Valor</th>
+        <th>Data cadastro</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @dificuldades.each do |dificuldade| %>
+      <tr>
+        <td><%= link_to dificuldade.nome, dificuldade %></td>
+        <td><%= dificuldade.valor_dificuldade %></td>
+        <td><%= l dificuldade.created_at, format: :long %></td>
+        <td><%= link_to 'Editar', edit_dificuldade_path(dificuldade), class: 'btn btn-default btn-xs' %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

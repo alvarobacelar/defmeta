@@ -1,0 +1,31 @@
+<%= simple_form_for(ganho, multipart: true) do |f| %>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <% if ganho.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(ganho.errors.count, "erro") %></h2>
+
+      <ul>
+        <% ganho.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+    <% end %>
+    <div class="row">
+      <%= f.input :nome,  wrapper_html: {class: 'col-md-6'} %>
+      <%= f.input :valor_ganho,  wrapper_html: {class: 'col-md-2'} %>
+      <%= f.input :status,  wrapper_html: {class: 'col-md-2'} %>
+    </div>
+  </div>
+
+  <div class="panel-footer">
+    <%= f.submit "Salvar", class: 'btn btn-primary' %> ou
+    <%= link_to "Cancelar", :back, class: 'btn btn-default' %>
+    <%= link_to "Apagar", @ganho,
+    method: :delete,
+    class: 'btn btn-danger pull-right',
+    data: { confirm: 'Tem certeza que quer apagar?' } if @ganho.persisted? %>
+  </div>
+</div>
+<% end %>

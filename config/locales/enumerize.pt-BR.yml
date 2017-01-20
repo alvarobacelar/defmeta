@@ -1,0 +1,30 @@
+pt-BR:
+  enumerize:
+    horario:
+      dia_da_semana:
+        '0': Domingo
+        '1': Segunda
+        '2': Terça
+        '3': Quarta
+        '4': Quinta
+        '5': Sexta
+        '6': Sábado
+    turma:
+      dias_da_semana:
+        '0': Domingo
+        '1': Segunda
+        '2': Terça
+        '3': Quarta
+        '4': Quinta
+        '5': Sexta
+        '6': Sábado
+    aluno:
+      dias_pretendido:
+        segundas_quartas: 'Segundas/Quartas'
+        tercas_quintas: 'Terças/Quintas'
+        sextas: 'Sextas'
+        sabados: 'Sábados'
+      periodos_pretendido:
+        manha: 'Manhã (8-12)'
+        tarde: 'Tarde (14-17)'
+        noite: 'Noite (18-21)'

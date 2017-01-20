@@ -1,0 +1,1 @@
+json.array! @detalhamentos, partial: 'detalhamentos/detalhamento', as: :detalhamento

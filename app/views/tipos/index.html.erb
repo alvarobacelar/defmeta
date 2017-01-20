@@ -1,0 +1,28 @@
+<div class="page-header">
+  <h1>Tipos</h1>
+  <%= link_to "Novo Tipo", new_tipo_path, class: 'btn btn-primary' %>
+</div>
+
+<div class="panel panel-default">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Descrição</th>
+        <th>Valor</th>
+        <th>Data cadastro</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @tipos.each do |tipo| %>
+        <tr>
+          <td><%= link_to tipo.nome, tipo %></td>
+          <td><%= tipo.valor_tipo %></td>
+          <td><%= l tipo.created_at, format: :long %></td>
+          <td><%= link_to 'Editar', edit_tipo_path(tipo), class: 'btn btn-default btn-xs' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

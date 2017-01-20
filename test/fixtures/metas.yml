@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nome: MyString
+  tipo_id: 1
+  dificuldade_id: 1
+  ganho_id: 1
+  usuario_id: 1
+
+two:
+  nome: MyString
+  tipo_id: 1
+  dificuldade_id: 1
+  ganho_id: 1
+  usuario_id: 1

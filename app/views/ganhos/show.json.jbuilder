@@ -1,0 +1,1 @@
+json.partial! "ganhos/ganho", ganho: @ganho

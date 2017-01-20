@@ -1,0 +1,19 @@
+<div class="page-header">
+  <h1>
+    <%%= @<%= singular_table_name %>.descricao %>
+  </h1>
+  <div class="pull-right">
+    <%%= link_to "Editar", edit_<%= singular_table_name %>_path(@<%= singular_table_name %>), class: 'btn btn-primary' %>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <table class="table">
+    <tr>
+      <td class="col-md-2">Descrição</td> <td><%%= @<%= singular_table_name %>.descricao %></td>
+    </tr>
+    <tr>
+      <td>Data do cadastro</td> <td><%%= l @<%= singular_table_name %>.created_at %></td>
+    </tr>
+  </table>
+</div>

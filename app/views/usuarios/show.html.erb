@@ -1,0 +1,39 @@
+<ol class="breadcrumb">
+  <li>
+    <%= link_to "Usuários", usuarios_path %>
+  </li>
+  <li class="active">
+    <%= @usuario.nome %>
+  </li>
+</ol>
+
+<h1 class="page-header">
+  <%= @usuario.nome %>
+</h1>
+
+<div class="panel panel-default">
+  <table class="table table-bordered">
+    <tr>
+      <th>Nome</th>
+      <td><%= @usuario.nome %></td>
+    </tr>
+    <tr>
+      <th>Perfil</th>
+      <td><%= @usuario.perfil %></td>
+    </tr>
+    <tr>
+      <th>Email</th>
+      <td><%= @usuario.email %></td>
+    </tr>
+    <tr>
+      <th>Situação</th>
+      <td><%= @usuario.ativo ? 'Ativo' : 'Inativo' %></td>
+    </tr>
+  </table>
+
+  <div class="panel-footer">
+    <%= link_to 'Editar Cadastro', edit_usuario_path(@usuario), class: 'btn btn-default' %>
+    <%= link_to '<i class="fa fa-trash-o"></i> Deletar'.html_safe, @usuario, :method => 'delete',
+                 :class => 'btn btn-danger pull-right', :confirm => "Tem certeza que quer deletar esse usuário e todas as suas informações?" %>
+  </div>
+</div>

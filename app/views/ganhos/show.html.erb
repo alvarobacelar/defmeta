@@ -1,0 +1,19 @@
+<div class="page-header">
+  <h1>
+    <%= @ganho.descricao %>
+  </h1>
+  <div class="pull-right">
+    <%= link_to "Editar", edit_ganho_path(@ganho), class: 'btn btn-primary' %>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <table class="table">
+    <tr>
+      <td class="col-md-2">Descrição</td> <td><%= @ganho.descricao %></td>
+    </tr>
+    <tr>
+      <td>Data do cadastro</td> <td><%= l @ganho.created_at %></td>
+    </tr>
+  </table>
+</div>

@@ -1,0 +1,40 @@
+<div class="page-header">
+  <h1>
+    <%= @meta.nome %>
+  </h1>
+  <div class="pull-right">
+    <%= link_to "Editar", edit_meta_path(@meta), class: 'btn btn-primary' %>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <table class="table">
+    <tr>
+      <td class="col-md-2">Ganho</td> <td><%= @meta.ganho.nome %></td>
+    </tr>
+    <tr>
+      <td class="col-md-2">Tipo</td> <td><%= @meta.tipo.nome %></td>
+    </tr>
+    <tr>
+      <td class="col-md-2">Dificuldade</td> <td><%= @meta.dificuldade.nome %></td>
+    </tr>
+    <tr>
+      <td class="col-md-2">Coeficiente ganho</td> <td><%= @meta.coeficienteganho %></td>
+    </tr>
+    <tr>
+      <td class="col-md-2">Coeficiente tipo</td> <td><%= @meta.coeficientetipo %></td>
+    </tr>
+    <tr>
+      <td class="col-md-2">Coeficiente dificuldade</td> <td><%= @meta.coeficientedificuldade %></td>
+    </tr>
+    <tr>
+      <td class="col-md-2">Pontuação total</td> <td><%= @meta.pontuacao %></td>
+    </tr>
+    <tr>
+      <td class="col-md-2">Meta nivel</td> <td><%= @meta.nivel %></td>
+    </tr>
+    <tr>
+      <td>Data do cadastro</td> <td><%= l @meta.created_at, format: :long %></td>
+    </tr>
+  </table>
+</div>

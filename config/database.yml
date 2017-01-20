@@ -1,0 +1,28 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: defmetas
+  pool: 5
+  username: postgres
+  password: n3g@t!v0
+
+  host: 127.0.0.1
+  port: 5432
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: defmetas_test
+  pool: 5
+  username: postgres
+  password: n3g@t!v0
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: defmetas_production
+  pool: 5
+  username: postgres
+  password: n3g@t!v0
+  host: 127.0.0.1
+  port: 5432

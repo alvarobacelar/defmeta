@@ -1,0 +1,1 @@
+json.partial! "detalhamentos/detalhamento", detalhamento: @detalhamento

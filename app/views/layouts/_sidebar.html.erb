@@ -1,0 +1,73 @@
+<div class="navbar-default sidebar" role="navigation">
+  <div class="sidebar-nav navbar-collapse">
+    <ul class="nav" id="side-menu">
+      <% if 'current_usuario.admin?' %>
+      <li class="sidebar-search">
+        <%= form_tag 'alunos_path', :method => :get do %>
+        <div class="input-group custom-search-form">
+          <%= text_field_tag :q, params[:q], placeholder: "Pesquisar...", class: 'form-control' %>
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="submit">
+              <i class="fa fa-search"></i>
+            </button>
+          </span>
+        </div>
+        <!-- /input-group -->
+        <% end %>
+      </li>
+      <li class="financeiro">
+        <%= link_to root_path, :class => ('active' if request.path == "/") do %>
+        <i class="fa fa-home fa-fw"></i> Home
+        <% end %>
+      </li>
+      <li class="financeiro">
+        <%= link_to metas_path, :class => ('active' if request.path =~/metas/) do %>
+        <i class="fa fa-bar-chart-o fa-fw"></i> Metas
+        <% end %>
+      </li>
+      <li class="financeiro">
+        <%= link_to usuarios_path, :class => ('active' if request.path =~/usuarios/) do %>
+        <i class="fa fa-user fa-fw"></i> Usuarios
+        <% end %>
+      </li>
+      <li>
+        <a href="#"><i class="fa fa-cogs fa-fw"></i> Configurações<span class="fa arrow"></span></a>
+        <ul class="nav nav-second-level ">
+          <li>
+            <%= link_to dificuldades_path, :class => ('active' if request.path =~/dificuldades/) do %>
+            Dificuldade
+            <% end %>
+          </li>
+          <li>
+            <%= link_to ganhos_path, :class => ('active' if request.path =~/ganhos/) do %>
+            Ganhos
+            <% end %>
+          </li>
+          <li>
+            <%= link_to tipos_path, :class => ('active' if request.path =~/tipos/) do %>
+            Tipos
+            <% end %>
+          </li>
+          <li>
+            <a href="#">Configurações <span class="fa arrow"></span></a>
+            <ul class="nav nav-third-level">
+              <li>
+                <%= link_to configs_path, :class => ('active' if request.path =~/configs/) do %>
+                Definição de ganhos
+                <% end %>
+              </li>
+            </ul>
+            <!-- /.nav-third-level -->
+          </li>
+        </ul>
+        <!-- /.nav-second-level -->
+      </li>
+      <li class="calendario hide">
+        <%= link_to '<i class="fa fa-calendar fa-fw"></i> Calendário'.html_safe, 'root_path', :class => ('active' if request.path == '/') %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+  <!-- /.sidebar-collapse -->
+</div>
+<!-- /.navbar-static-side -->

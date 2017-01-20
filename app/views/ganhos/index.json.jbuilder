@@ -1,0 +1,1 @@
+json.array! @ganhos, partial: 'ganhos/ganho', as: :ganho

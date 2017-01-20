@@ -1,0 +1,19 @@
+<div class="page-header">
+  <h1>
+    <%= @tipo.descricao %>
+  </h1>
+  <div class="pull-right">
+    <%= link_to "Editar", edit_tipo_path(@tipo), class: 'btn btn-primary' %>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <table class="table">
+    <tr>
+      <td class="col-md-2">Descrição</td> <td><%= @tipo.descricao %></td>
+    </tr>
+    <tr>
+      <td>Data do cadastro</td> <td><%= l @tipo.created_at %></td>
+    </tr>
+  </table>
+</div>

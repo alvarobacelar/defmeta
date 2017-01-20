@@ -1,0 +1,28 @@
+<div class="page-header">
+  <h1>Ganhos</h1>
+  <%= link_to "Novo Ganho", new_ganho_path, class: 'btn btn-primary' %>
+</div>
+
+<div class="panel panel-default">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Descrição</th>
+        <th>Valor</th>
+        <th>Data cadastro</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @ganhos.each do |ganho| %>
+        <tr>
+          <td> <%= link_to ganho.nome, ganho %> </td>
+          <td> <%= ganho.valor_ganho %> </td>
+          <td><%= l ganho.created_at, format: :long %></td>
+          <td><%= link_to 'Editar', edit_ganho_path(ganho), class: 'btn btn-default btn-xs' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

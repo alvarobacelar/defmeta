@@ -1,0 +1,37 @@
+<div class="page-header">
+  <h1>Metas</h1>
+  <%= link_to "Nova Meta", new_meta_path, class: 'btn btn-primary' %>
+</div>
+
+<div class="panel panel-default">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Nível</th>
+        <th>Meta</th>
+        <th>Tipo</th>
+        <th>Ganho</th>
+        <th>Dificuldade</th>
+        <th>Data cadastro</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @metas.each do |meta| %>
+        <tr>
+          <td><%= meta.nivel %></td>
+          <td><%= link_to meta.nome, meta %></td>
+          <td><%= meta.tipo.nome %></td>
+          <td><%= meta.ganho.nome %></td>
+          <td><%= meta.dificuldade.nome %></td>
+          <td><%= l meta.created_at, format: :long %></td>
+          <td>
+            <%= link_to 'Detalhar', detalhar_meta_path(meta), class: 'btn btn-primary btn-xs' %>
+            <%#= link_to 'Editar', edit_meta_path(meta), class: 'btn btn-default btn-xs' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

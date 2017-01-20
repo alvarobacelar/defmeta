@@ -1,0 +1,1 @@
+json.partial! "metas/meta", meta: @meta

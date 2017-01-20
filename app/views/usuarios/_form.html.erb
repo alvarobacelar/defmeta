@@ -1,0 +1,32 @@
+<%= simple_form_for(@usuario) do |f| %>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <% if @usuario.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@usuario.errors.count, "erro") %>:</h2>
+
+          <ul>
+          <% @usuario.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <%= f.input :nome %>
+      <%= f.input :email %>
+      <%= f.input :perfil %>
+      <%= f.input :password %>
+      <%= f.input :password_confirmation %>
+      <%= f.input :ativo %>
+    </div>
+
+    <div class="panel-footer">
+      <%= f.submit 'Salvar', class: 'btn btn-primary' %>
+      <%= link_to 'Deletar',
+                  @usuario,
+                  :method => 'delete',
+                  :class => 'btn btn-danger pull-right',
+                  :confirm => "Tem certeza que quer deletar esse usuário e todas as suas informações?" %>
+    </div>
+  </div>
+<% end %>

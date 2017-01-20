@@ -1,0 +1,136 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require fullcalendar
+ *= require metisMenu.css
+ *x require editable/bootstrap-editable
+ *= require_tree .
+ */
+
+#error_explanation h2 {
+  font-size: 1em;
+  background: rgb(184, 46, 46);
+  margin: 0;
+  padding: 0 10px;
+  border: 1px solid rgb(184, 46, 46);
+  border-bottom: 0;
+  color: white;
+}
+#error_explanation ul {
+  border: 1px solid rgb(184, 46, 46);
+  border-top: 0;
+  margin: 0;
+  padding: 10px 30px;
+  margin-bottom: 20px;
+}
+
+/* Por algum motivo curioso o backdrop tá sobrepondo o dialog. */
+.modal-dialog {
+  z-index: 1040; /* 1040 + 1 */
+}
+
+/* Customização do Chosen */
+.chzn-container-multi .chzn-choices .search-field .default {
+  height: 30px;
+}
+
+/* Usado nos selects com colunas */
+.monospace {
+  font-family: monospace;
+}
+
+/* Observação do pagamento na tabela */
+.observacao {
+  color: gray;
+  font-size: 0.8em;
+  display: block
+}
+
+/* Remove menu lateral quando usuário for professor. */
+.professor ol.breadcrumb {
+  display: none;
+}
+.professor #page-wrapper {
+  margin-left: 0;
+}
+.professor .btn.btn-danger {
+  display: none !important;
+}
+
+/* Por padrão, o check das listas de pagamentos ficam desabilitados.
+   Eles devem ser habilitados na página que chama o partial
+   /movimentos/_table.html.erb */
+th.check, td.check { display: none }
+
+/* Coloca o botão primario à direita do título */
+.page-header:after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+.page-header h1 {
+  float: left;
+}
+.page-header .btn-primary {
+  float: right;
+  margin-top: 20px;
+}
+
+/* Configurações das impressões. */
+@media print {
+  .navbar,
+  .page-header {
+    display: none
+  }
+
+  a[href]:after {
+    content: none !important;
+  }
+
+  td, th {
+    padding: 2px !important;
+    font-size: 8px !important;
+    border: 1px solid black !important;
+    box-shadow: none !important;
+  }
+  .panel-heading {
+    padding: 5px !important;
+    font-size: 10px !important;
+  }
+  td .help-block  {
+    margin: 0 !important;
+  }
+  table tr.despesa td:nth-child(1),
+  table tr.receita td:nth-child(1) {
+    border-left-width: 1px !important;
+  }
+
+  abbr {
+    display: none;
+  }
+  div.help-block {
+  }
+  .nav.nav-tabs {
+    font-size: 0.8em !important;
+  }
+  .nav li a {
+    display: none !important;
+  }
+  .nav li.active {
+  }
+  .nav li.active a {
+    display: block !important;
+    padding: 0;
+    font-size: 1.5em !important;
+    border: none !important;
+  }
+
+}

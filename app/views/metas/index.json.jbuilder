@@ -1,0 +1,1 @@
+json.array! @metas, partial: 'metas/meta', as: :meta
