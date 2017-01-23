@@ -1,37 +1,108 @@
 <div class="page-header">
-  <h1>Metas</h1>
-  <%= link_to "Nova Meta", new_meta_path, class: 'btn btn-primary' %>
+  <h1>Metas de <%= mes = l @mes_referencia, :format => '%B' %> &nbsp;</h1>
+  <div class="actions pull-right">
+    <h2 class="lvh-label">
+      <div class="btn-group">
+        <%= link_to "<i class='fa fa-angle-left'></i>".html_safe,  {:periodo => @mes_referencia - 1.month}, :class => 'btn btn-default' %>
+        <%= link_to mes, '', :class => 'btn btn-default' %>
+        <%= link_to "<i class='fa fa-angle-right'></i>".html_safe, {:periodo => @mes_referencia + 1.month}, :class => 'btn btn-default' %>
+      </div>
+    </h2>
+  </div>
+  <%= link_to "Nova Meta", new_meta_path, class: 'btn btn-primary pull-left' %>
 </div>
 
 <div class="panel panel-default">
-  <table class="table table-striped">
+  <div class="panel panel-heading">
+    <i class="fa fa-filter"></i>
+    Responsável:
+    <%= link_to "Todos", periodo: params[:periodo], com_responsavel: nil %>,
+    <% Usuario.all.each do |u| %>
+    <%= link_to u.nome,  periodo: params[:periodo], com_responsavel: u.id %>,
+    <% end %>
+
+  </div>
+
+  <table class="table table-condensed">
     <thead>
       <tr>
         <th>Nível</th>
         <th>Meta</th>
-        <th>Tipo</th>
-        <th>Ganho</th>
-        <th>Dificuldade</th>
-        <th>Data cadastro</th>
+        <th>Detalhamento</th>
+        <th>Status</th>
+        <th>Responsável</th>
         <th></th>
       </tr>
     </thead>
 
     <tbody>
       <% @metas.each do |meta| %>
-        <tr>
-          <td><%= meta.nivel %></td>
-          <td><%= link_to meta.nome, meta %></td>
-          <td><%= meta.tipo.nome %></td>
-          <td><%= meta.ganho.nome %></td>
-          <td><%= meta.dificuldade.nome %></td>
-          <td><%= l meta.created_at, format: :long %></td>
-          <td>
-            <%= link_to 'Detalhar', detalhar_meta_path(meta), class: 'btn btn-primary btn-xs' %>
-            <%#= link_to 'Editar', edit_meta_path(meta), class: 'btn btn-default btn-xs' %>
-          </td>
-        </tr>
+      <% if meta.detalhamentos.present? %>
+      <% porcento = andamento(meta.id).to_i %>
       <% end %>
-    </tbody>
-  </table>
+      <tr>
+        <td style="<%= background_meta(meta.nivel) %>" class="text-center"><strong><%= meta.nivel %></strong></td>
+        <td class="<%= concluido(porcento) %>"><%= link_to meta.nome, meta %>
+          <% if meta.detalhamentos.present? %>
+          <% if andamento(meta.id).to_i == 100 %>
+          <div class="progress">
+            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <%= andamento(meta.id).to_i %>%;">
+              <%= andamento(meta.id).to_i %>%
+            </div>
+          </div>
+          <% else %>
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <%= andamento(meta.id).to_i %>%;">
+              <%= andamento(meta.id).to_i %>%
+            </div>
+          </div>
+          <% end %>
+          <% end %>
+        </td>
+        <td class="col-sm-6  <%= concluido(porcento) %>">
+          <% meta.detalhamentos.order('created_at').each do |item| %>
+          <% if meta.detalhamentos.present? %>
+          <p><%= item.item %></p>
+          <% else %>
+          <%= link_to 'Detalhar', detalhar_meta_path(meta), class: 'btn btn-primary btn-xs' %>
+          <% end %>
+          <% end %>
+        </td>
+        <td class="<%= concluido(porcento) %>">
+          <% meta.detalhamentos.order('created_at').each do |item| %>
+          <% if item.status %>
+          <p>
+            <input onchange="toggle_status(<%= item.id %>);" checked type="checkbox" data-toggle="toggle" data-on="Concluída" data-off="Pendente" data-onstyle="success" data-size="mini" data-offstyle="default">
+          </p>
+          <% else %>
+          <p>
+            <input onchange="toggle_status(<%= item.id %>);" type="checkbox" data-toggle="toggle" data-on="Concluída" data-off="Pendente" data-onstyle="success" data-size="mini" data-offstyle="default">
+          </p>
+          <% end %>
+          <% end %>
+        </td>
+      </td>
+      <td class="<%= concluido(porcento) %>">
+        <%= meta.usuario.nome %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
 </div>
+
+<script>
+
+function toggle_status(id) {
+  $.ajax({
+
+
+
+    url:'/detalhamentos/'+id+'/toogle_status',
+    type: 'GET'
+  }).done(function() {
+    console.log('alterado')
+  });
+}
+
+</script>

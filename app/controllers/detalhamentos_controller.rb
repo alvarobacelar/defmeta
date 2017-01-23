@@ -26,6 +26,12 @@ class DetalhamentosController < ApplicationController
     respond_with(@detalhamento)
   end
 
+  def toogle_status
+    @detalhamento = Detalhamento.find(params[:id])
+    @detalhamento.update_columns(status: !@detalhamento.status)
+    render(nothing: true)
+  end
+
   def update
     @detalhamento.update(detalhamento_params)
     respond_with(@detalhamento)

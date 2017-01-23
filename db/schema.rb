@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170119183017) do
+ActiveRecord::Schema.define(version: 20170121132555) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,9 +26,9 @@ ActiveRecord::Schema.define(version: 20170119183017) do
   create_table "detalhamentos", force: :cascade do |t|
     t.text     "item"
     t.integer  "meta_id"
-    t.string   "status"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "status",     default: false
   end
 
   create_table "dificuldades", force: :cascade do |t|
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 20170119183017) do
     t.integer  "coeficientedificuldade"
     t.integer  "coeficienteganho"
     t.integer  "pontuacao"
+    t.date     "datameta"
   end
 
   create_table "tipos", force: :cascade do |t|

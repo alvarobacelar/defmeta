@@ -2,39 +2,83 @@
   <h1>
     <%= @meta.nome %>
   </h1>
+
   <div class="pull-right">
     <%= link_to "Editar", edit_meta_path(@meta), class: 'btn btn-primary' %>
   </div>
+
 </div>
 
-<div class="panel panel-default">
-  <table class="table">
-    <tr>
-      <td class="col-md-2">Ganho</td> <td><%= @meta.ganho.nome %></td>
-    </tr>
-    <tr>
-      <td class="col-md-2">Tipo</td> <td><%= @meta.tipo.nome %></td>
-    </tr>
-    <tr>
-      <td class="col-md-2">Dificuldade</td> <td><%= @meta.dificuldade.nome %></td>
-    </tr>
-    <tr>
-      <td class="col-md-2">Coeficiente ganho</td> <td><%= @meta.coeficienteganho %></td>
-    </tr>
-    <tr>
-      <td class="col-md-2">Coeficiente tipo</td> <td><%= @meta.coeficientetipo %></td>
-    </tr>
-    <tr>
-      <td class="col-md-2">Coeficiente dificuldade</td> <td><%= @meta.coeficientedificuldade %></td>
-    </tr>
-    <tr>
-      <td class="col-md-2">Pontuação total</td> <td><%= @meta.pontuacao %></td>
-    </tr>
-    <tr>
-      <td class="col-md-2">Meta nivel</td> <td><%= @meta.nivel %></td>
-    </tr>
-    <tr>
-      <td>Data do cadastro</td> <td><%= l @meta.created_at, format: :long %></td>
-    </tr>
-  </table>
+<div class="col-lg-12">
+  <div class="panel panel-default">
+    <table class="table">
+      <thead>
+        <th>Ganho</th>
+        <th>Tipo</th>
+        <th>Dificuldade</th>
+        <th>Coefi. Ganho</th>
+        <th>Coefi. Tipo</th>
+        <th>Coefi. Dificuldade</th>
+        <th>Pontuação</th>
+        <th>Nível meta</th>
+        <th>Data cadastro</th>
+      </thead>
+      <tr>
+        <td><%= @meta.ganho.nome %></td>
+        <td><%= @meta.tipo.nome %></td>
+        <td><%= @meta.dificuldade.nome %></td>
+        <td><%= @meta.coeficienteganho %></td>
+        <td><%= @meta.coeficientetipo %></td>
+        <td><%= @meta.coeficientedificuldade %></td>
+        <td><%= @meta.pontuacao %></td>
+        <td><%= @meta.nivel %></td>
+        <td><%= l @meta.created_at, format: :long %></td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<div class="col-lg-12">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      Detalhamento da meta <%= link_to 'Adicionar item', detalhar_meta_path(@meta), class: 'btn btn-primary btn-xs' %>
+    </div>
+    <!-- /.panel-heading -->
+    <div class="panel-body">
+      <% if @meta.detalhamentos.present? %>
+      <table class="table">
+        <thead>
+          <th>Item</th>
+          <th>Status</th>
+        </thead>
+        <tbody>
+          <% @meta.detalhamentos.order('created_at').each do |item| %>
+          <tr>
+            <td class="col-sm-7">
+              <p><%= item.item %></p>
+            </td>
+            <td class="col-sm-2">
+              <% if item.status %>
+              <p>
+                <input onchange="toggle_status(<%= item.id %>);" checked type="checkbox" data-toggle="toggle" data-on="Concluída" data-off="Pendente" data-onstyle="success" data-size="mini" data-offstyle="default">
+              </p>
+              <% else %>
+              <p>
+                <input onchange="toggle_status(<%= item.id %>);" type="checkbox" data-toggle="toggle" data-on="Concluída" data-off="Pendente" data-onstyle="success" data-size="mini" data-offstyle="default">
+              </p>
+              <% end %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <% else %>
+        <p class="text-info">Ainda não há detalhamento para essa meta</p>
+        <%= link_to 'Detalhar', detalhar_meta_path(@meta), class: 'btn btn-primary btn-xs' %>
+      <% end %>
+
+    </div>
+    <!-- /.panel-body -->
+  </div>
+  <!-- /.panel -->
 </div>

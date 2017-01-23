@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :detalhamentos
+  resources :detalhamentos do
+    get 'toogle_status',  on: :member
+  end
   resources :metas do
     get 'detalhar',       on: :member
   end

@@ -7,6 +7,9 @@ class Meta < ApplicationRecord
   belongs_to :ganho, optional: true
   belongs_to :usuario, optional: true
 
+  scope :periodo , -> (data_referencia) { where("to_char(datameta, 'MM') = ?", data_referencia.to_date.strftime('%m')) }
+  scope :com_responsavel, -> (usuario) { where(usuario_id: usuario) }
+
   has_many :detalhamentos, dependent: :destroy
   accepts_nested_attributes_for :detalhamentos, :allow_destroy => true
 
