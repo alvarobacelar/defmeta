@@ -24,4 +24,5 @@
 //x require editable/bootstrap-editable
 //x require editable/rails
 //= require tinymce
+//= require chartkick
 //x require_tree .

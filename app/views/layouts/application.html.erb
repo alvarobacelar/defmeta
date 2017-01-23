@@ -4,6 +4,11 @@
   <%= stylesheet_link_tag  "application", media: "all", "data-turbolinks-track" => true %>
 
   <%= csrf_meta_tags %>
+  <%= javascript_include_tag "//www.google.com/jsapi" %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= javascript_tag do %>
+  <%= yield :js %>
+  <% end %>
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -132,10 +137,7 @@
 
   </div>
   <!-- /#wrapper -->
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= javascript_tag do %>
-  <%= yield :js %>
-  <% end %>
+
 
 </body>
 </html>
