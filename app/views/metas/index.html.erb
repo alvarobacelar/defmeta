@@ -24,6 +24,7 @@
   </div>
 
   <table class="table table-condensed">
+    <% if @metas.present? %>
     <thead>
       <tr>
         <th>Nível</th>
@@ -88,6 +89,15 @@
     </tr>
     <% end %>
   </tbody>
+  <% else %>
+  <tr>
+    <td>
+      <div class="alert alert-info">
+        Nenhuma meta cadastrada nesse período. <%= link_to "Cadastrar nova", new_meta_path, class: "alert-link" %>.
+      </div>
+    </td>
+  </tr>
+  <% end %>
 </table>
 </div>
 
