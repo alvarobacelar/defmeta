@@ -15,6 +15,6 @@ class WelcomeController < ApplicationController
     params[:periodo] = l(data_corrente) unless params[:periodo]
     # @metas = Meta.periodo(Date.today).count
     @metas = apply_scopes(Meta).all.order('pontuacao DESC').count
-    @todas_metas = apply_scopes(Meta).all.order('pontuacao DESC')
+    @todas_metas = apply_scopes(Meta).all
   end
 end
