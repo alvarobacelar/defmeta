@@ -47,7 +47,7 @@
       <div class="card-header">
         <h2>Dificuldade <small>Metas por dificuldade</small></h2>
       </div>
-      <%= pie_chart @todas_metas.group(:dificuldade_id).count, legend: "bottom" %>
+      <%= pie_chart @todas_metas.group("dificuldades.nome").count, legend: "bottom" %>
     </div>
   </div>
 
@@ -56,7 +56,7 @@
       <div class="card-header">
         <h2>Tipo <small>Metas por tipo</small></h2>
       </div>
-      <%= pie_chart @todas_metas.group(:tipo_id).count, legend: "bottom" %>
+      <%= pie_chart @todas_metas.group("tipos.nome").count, legend: "bottom" %>
     </div>
   </div>
 </div>
@@ -67,7 +67,7 @@
       <div class="card-header">
         <h2>Ganho <small>Metas por ganho</small></h2>
       </div>
-      <%= pie_chart @todas_metas.group(:ganho_id).count, legend: "bottom" %>
+      <%= pie_chart @todas_metas.group("ganhos.nome").count, legend: "bottom" %>
     </div>
   </div>
 
@@ -75,7 +75,7 @@
     <div class="card">
       <div class="card-header">
         <h2>Responsável <small>Metas por usuários</small></h2>
-        <%= pie_chart @todas_metas.group(:usuario_id).count, legend: "bottom" %>
+        <%= pie_chart @todas_metas.group("usuarios.nome").count, legend: "bottom" %>
       </div>
     </div>
   </div>
