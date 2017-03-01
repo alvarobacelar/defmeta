@@ -56,7 +56,7 @@
       <div class="card-header">
         <h2>Tipo <small>Metas por tipo</small></h2>
       </div>
-      <%= pie_chart @todas_metas.group("tipos.nome").count, legend: "bottom" %>
+      <%= pie_chart @todas_metas.group("tipos.nome").count %>
     </div>
   </div>
 </div>
