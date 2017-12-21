@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
+  resources :bonificacoes
   resources :detalhamentos do
     get 'toogle_status',  on: :member
   end
   resources :metas do
     get 'detalhar',       on: :member
+    get 'fechar_mes',     on: :collection
   end
   resources :configs
   resources :ganhos

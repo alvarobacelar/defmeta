@@ -1,0 +1,1 @@
+json.partial! "bonificacoes/bonificacao", bonificacao: @bonificacao

@@ -99,15 +99,15 @@
   </tr>
   <% end %>
 </table>
+  <div class="panel panel-footer">
+    <%= link_to "Fechar mês", fechar_mes_metas_path(data_referencia: @mes_referencia), class: "btn btn-success", data: { confirm: 'Tem certeza que deseja fechar o mês?' } %>
+  </div>
 </div>
 
 <script>
 
 function toggle_status(id) {
   $.ajax({
-
-
-
     url:'/detalhamentos/'+id+'/toogle_status',
     type: 'GET'
   }).done(function() {

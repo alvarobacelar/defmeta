@@ -1,0 +1,43 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  quantidaden3: 1
+  quantidaden2: 1
+  quantidaden1: 1
+  alcancadon3: 1
+  alcancadon2: 1
+  alcancadon1: 1
+  totalalcancado: 1
+  bnfalcancadan3: 1.5
+  bnfalcancadan2: 1.5
+  bnfalcancadan1: 1.5
+  totalbnf: 1.5
+  pontuacaon3: 1
+  pontuacaon2: 1
+  pontuacaon1: 1
+  totalpontuacao: 1
+  pontuacaodonen3: 1
+  pontuacaodonen2: 1
+  pontuacaodonen1: 1
+  totalpontuacaodone: 1
+
+two:
+  quantidaden3: 1
+  quantidaden2: 1
+  quantidaden1: 1
+  alcancadon3: 1
+  alcancadon2: 1
+  alcancadon1: 1
+  totalalcancado: 1
+  bnfalcancadan3: 1.5
+  bnfalcancadan2: 1.5
+  bnfalcancadan1: 1.5
+  totalbnf: 1.5
+  pontuacaon3: 1
+  pontuacaon2: 1
+  pontuacaon1: 1
+  totalpontuacao: 1
+  pontuacaodonen3: 1
+  pontuacaodonen2: 1
+  pontuacaodonen1: 1
+  totalpontuacaodone: 1

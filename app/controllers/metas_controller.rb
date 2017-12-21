@@ -5,6 +5,8 @@ class MetasController < ApplicationController
   has_scope :periodo
   has_scope :com_responsavel
 
+  BOM = "\377\376" #Byte Order Mark
+  # require 'iconv'
 
   def index
     if params[:periodo]
@@ -18,7 +20,11 @@ class MetasController < ApplicationController
     data_corrente = Date.today
     params[:periodo] = l(data_corrente) unless params[:periodo]
     @metas = apply_scopes(Meta).all.order('pontuacao DESC')
-    respond_with(@metas)
+    respond_to do |format|
+      format.html
+      format.csv { export_csv(@metas) }
+    end
+    # respond_with(@metas)
   end
 
   def show
@@ -35,6 +41,14 @@ class MetasController < ApplicationController
   end
 
   def edit
+  end
+
+  def fechar_mes
+    referencia = params[:data_referencia].to_date
+    Meta.fechar_mes(referencia)
+    respond_to do |format|
+      format.html { redirect_to metas_url, notice: 'Mes fechado' }
+    end
   end
 
   def create
@@ -54,12 +68,19 @@ class MetasController < ApplicationController
   end
 
   private
-    def set_meta
-      @meta = Meta.find(params[:id])
-    end
+  def set_meta
+    @meta = Meta.find(params[:id])
+  end
 
-    def meta_params
-      params.require(:meta).permit(:nome, :tipo_id, :dificuldade_id, :ganho_id, :usuario_id, :datameta,
-      detalhamentos_attributes: [:id, :item, :meta_id, :_destroy])
-    end
+  def meta_params
+    params.require(:meta).permit(:nome, :tipo_id, :dificuldade_id, :ganho_id, :usuario_id, :datameta,
+    detalhamentos_attributes: [:id, :item, :meta_id, :_destroy])
+  end
+
+  def export_csv(projects)
+    filename = I18n.l(Time.now, :format => :short) + "- Projects.csv"
+    content = Meta.to_csv(projects)
+    content = BOM + Iconv.conv("utf-16le", "utf-8", content)
+    send_data content, :filename => filename
+  end
 end

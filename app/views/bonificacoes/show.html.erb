@@ -1,0 +1,65 @@
+<div class="page-header">
+  <h1>
+    Resultado do mês de <%= l @bonificacao.periodo, format: '%B' %>
+  </h1> 
+  <%= link_to "Exportar para Excel", bonificacao_path(@bonificacao, format: "xls"), class: "btn btn-primary btn-xs pull-rigth" %>
+</div>
+
+<div class="panel panel-default">
+  <table class="table table-striped table-bordered table-hover">
+  <thead>
+    <th class="text-center"> Peso </th>
+    <th class="text-center"> Nivel </th>
+    <th class="text-center"> % BNF </th>
+    <th class="text-center"> Quantidade </th>
+    <th class="text-center"> Alcançado </th>
+    <th class="text-center"> % BNF Alcançado </th>
+    <th class="text-center"> Pontuação </th>
+    <th class="text-center"> Pontuacao Alcançada </th>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="text-center">6</td> 
+      <td class="text-center">3</td>
+      <td class="text-center">6</td>
+      <td class="text-center"><%= @bonificacao.quantidaden3 %></td>
+      <td class="text-center"><%= @bonificacao.alcancadon3 %></td>
+      <td class="text-center"><%= @bonificacao.bnfalcancadan3 %></td>
+      <td class="text-center"><%= @bonificacao.pontuacaon3 %></td>
+      <td class="text-center"><%= @bonificacao.pontuacaodonen3 %></td>
+    </tr>
+    <tr>
+      <td class="text-center">3</td> 
+      <td class="text-center">2</td>
+      <td class="text-center">3</td>
+      <td class="text-center"><%= @bonificacao.quantidaden2 %></td>
+      <td class="text-center"><%= @bonificacao.alcancadon2 %></td>
+      <td class="text-center"><%= @bonificacao.bnfalcancadan2.round(2) %></td>
+      <td class="text-center"><%= @bonificacao.pontuacaon2 %></td>
+      <td class="text-center"><%= @bonificacao.pontuacaodonen2 %></td>
+    </tr>
+    <tr>
+      <td class="text-center">1</td> 
+      <td class="text-center">1</td>
+      <td class="text-center">1</td>
+      <td class="text-center"><%= @bonificacao.quantidaden1 %></td>
+      <td class="text-center"><%= @bonificacao.alcancadon1 %></td>
+      <td class="text-center"><%= @bonificacao.bnfalcancadan1.round(2) %></td>
+      <td class="text-center"><%= @bonificacao.pontuacaon1 %></td>
+      <td class="text-center"><%= @bonificacao.pontuacaodonen1 %></td>
+    </tr>
+    <tr>
+      <td colspan="3" class="text-right">TOTAL</td>
+      <td class="text-center"><%= @bonificacao.totalalcancado %></td>
+      <td class="text-center"><%= @bonificacao.totalalcancado %></td>
+      <td class="text-center"><%= @bonificacao.totalbnf %></td>
+      <td class="text-center"><%= @bonificacao.totalpontuacao %></td>
+      <td class="text-center"><%= @bonificacao.totalpontuacaodone %></td>
+    </tr>
+    <tr>
+      <td colspan="7" class="text-right">Percentual de bonificação alcançado</td>
+      <td class="text-center"><%= @bonificacao.totalbnf %></td>
+    </tr>
+    </tbody>
+  </table>
+</div>

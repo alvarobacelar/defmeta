@@ -1,6 +1,7 @@
 require_relative 'boot'
 
 require 'rails/all'
+require 'csv'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -14,8 +15,10 @@ module Defmetas
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
     config = Rails.application.config
-    config.time_zone = 'Brasilia'
+    config.time_zone = 'Buenos Aires'
+    config.encoding = "utf-8"
     config.i18n.default_locale = 'pt-BR'
+    I18n.enforce_available_locales = false
     config.generators do |g|
       g.stylesheets false
       g.javascripts false

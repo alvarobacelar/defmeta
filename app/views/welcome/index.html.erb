@@ -24,7 +24,7 @@
           </div>
           <div class="col-xs-9 text-right">
             <div class="huge"><%= @metas %></div>
-            <div>Metas de <%= l Date.today, format: '%B' %></div>
+            <div>Total de metas </div>
           </div>
         </div>
       </div>
@@ -37,6 +37,31 @@
       <% end %>
     </div>
   </div>
+
+  <div class="row">
+  <div class="col-lg-3 col-md-6">
+    <div class="panel panel-green">
+      <div class="panel-heading">
+        <div class="row">
+          <div class="col-xs-3">
+            <i class="fa fa-check-square-o fa-5x"></i>
+          </div>
+          <div class="col-xs-9 text-right">
+            <div class="huge"><%= Meta.metas_done(Date.today) %></div>
+            <div>Metas concluídas</div>
+          </div>
+        </div>
+      </div>
+      <%= link_to metas_path do %>
+      <div class="panel-footer">
+        <span class="pull-left">Ver metas</span>
+        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+        <div class="clearfix"></div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+
 
 
 </div>

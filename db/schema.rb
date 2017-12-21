@@ -10,10 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170121132555) do
+ActiveRecord::Schema.define(version: 20171221140223) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bonificacoes", force: :cascade do |t|
+    t.integer  "quantidaden3"
+    t.integer  "quantidaden2"
+    t.integer  "quantidaden1"
+    t.integer  "alcancadon3"
+    t.integer  "alcancadon2"
+    t.integer  "alcancadon1"
+    t.integer  "totalalcancado"
+    t.float    "bnfalcancadan3"
+    t.float    "bnfalcancadan2"
+    t.float    "bnfalcancadan1"
+    t.float    "totalbnf"
+    t.integer  "pontuacaon3"
+    t.integer  "pontuacaon2"
+    t.integer  "pontuacaon1"
+    t.integer  "totalpontuacao"
+    t.integer  "pontuacaodonen3"
+    t.integer  "pontuacaodonen2"
+    t.integer  "pontuacaodonen1"
+    t.integer  "totalpontuacaodone"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.date     "periodo"
+  end
 
   create_table "configs", force: :cascade do |t|
     t.integer  "valor_ganho"
@@ -61,6 +86,7 @@ ActiveRecord::Schema.define(version: 20170121132555) do
     t.integer  "coeficienteganho"
     t.integer  "pontuacao"
     t.date     "datameta"
+    t.boolean  "status"
   end
 
   create_table "tipos", force: :cascade do |t|

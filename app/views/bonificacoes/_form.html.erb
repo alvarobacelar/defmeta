@@ -1,0 +1,47 @@
+<%= simple_form_for(bonificacao, multipart: true) do |f| %>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <% if bonificacao.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(bonificacao.errors.count, "erro") %></h2>
+
+      <ul>
+        <% bonificacao.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+    <% end %>
+    <div class="row">
+      <%= f.input :quantidaden3 %>
+      <%= f.input :quantidaden2 %>
+      <%= f.input :quantidaden1 %>
+      <%= f.input :alcancadon3 %>
+      <%= f.input :alcancadon2 %>
+      <%= f.input :alcancadon1 %>
+      <%= f.input :totalalcancado %>
+      <%= f.input :bnfalcancadan3 %>
+      <%= f.input :bnfalcancadan2 %>
+      <%= f.input :bnfalcancadan1 %>
+      <%= f.input :totalbnf %>
+      <%= f.input :pontuacaon3 %>
+      <%= f.input :pontuacaon2 %>
+      <%= f.input :pontuacaon1 %>
+      <%= f.input :totalpontuacao %>
+      <%= f.input :pontuacaodonen3 %>
+      <%= f.input :pontuacaodonen2 %>
+      <%= f.input :pontuacaodonen1 %>
+      <%= f.input :totalpontuacaodone %>
+    </div>
+  </div>
+
+  <div class="panel-footer">
+    <%= f.submit "Salvar", class: 'btn btn-primary' %> ou
+    <%= link_to "Cancelar", :back, class: 'btn btn-default' %>
+    <%= link_to "Apagar", @bonificacao,
+    method: :delete,
+    class: 'btn btn-danger pull-right',
+    data: { confirm: 'Tem certeza que quer apagar?' } if @bonificacao.persisted? %>
+  </div>
+</div>
+<% end %>

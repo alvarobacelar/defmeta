@@ -22,7 +22,12 @@
       </li>
       <li class="financeiro">
         <%= link_to metas_path, :class => ('active' if request.path =~/metas/) do %>
-        <i class="fa fa-bar-chart-o fa-fw"></i> Metas
+        <i class="fa fa-tasks fa-fw"></i> Metas
+        <% end %>
+      </li>
+      <li class="financeiro">
+        <%= link_to bonificacoes_path, :class => ('active' if request.path =~/bonificacoes/) do %>
+        <i class="fa fa-bar-chart-o fa-fw"></i> Resultados
         <% end %>
       </li>
       <li class="financeiro">

@@ -159,7 +159,6 @@ GEM
       mimemagic (= 0.3.0)
     parseline (1.0.3)
     pg (0.19.0)
-    puma (3.6.2)
     rack (2.0.1)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -266,7 +265,6 @@ DEPENDENCIES
   paperclip (~> 4.2)
   parseline
   pg
-  puma (~> 3.0)
   rails (~> 5.0.1)
   rghost
   rghost_barcode
@@ -284,4 +282,4 @@ DEPENDENCIES
   wkhtmltopdf-binary
 
 BUNDLED WITH
-   1.13.1
+   1.15.3
