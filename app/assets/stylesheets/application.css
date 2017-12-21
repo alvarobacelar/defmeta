@@ -15,7 +15,9 @@
  *x require editable/bootstrap-editable
  *= require_tree .
  */
-
+.btn-success{
+  margin: 20px 10px;
+}
 #error_explanation h2 {
   font-size: 1em;
   background: rgb(184, 46, 46);

@@ -1,10 +1,16 @@
 development:
+  # adapter: postgresql
+  # encoding: unicode
+  # database: defmetas
+  # pool: 5
+  # username: postgres
+  # password: n3g@t!v0
   adapter: postgresql
   encoding: unicode
   database: defmetas
   pool: 5
   username: postgres
-  password: n3g@t!v0
+  password: rootinfoway
 
   host: 127.0.0.1
   port: 5432
@@ -15,7 +21,7 @@ test:
   database: defmetas_test
   pool: 5
   username: postgres
-  password: n3g@t!v0
+  password: rootinfoway
 
 production:
   adapter: postgresql
