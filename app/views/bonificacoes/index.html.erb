@@ -3,6 +3,8 @@
 </div>
 
 <div class="panel panel-default">
+<%#= line_chart Bonificacao.ano_bnf(@bonificacoes.first.periodo) %>
+<%= line_chart Bonificacao.group_by_month(:periodo).maximum(:totalbnf) %>
   <table class="table table-striped">
     <thead>
       <tr>

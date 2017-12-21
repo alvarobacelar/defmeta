@@ -28,7 +28,7 @@
       <td class="text-center"><%= @bonificacao.pontuacaon3 %></td>
       <td class="text-center"><%= @bonificacao.pontuacaodonen3 %></td>
     </tr>
-    <tr>
+    <tr>  
       <td class="text-center">3</td> 
       <td class="text-center">2</td>
       <td class="text-center">3</td>
@@ -62,4 +62,11 @@
     </tr>
     </tbody>
   </table>
+</div>
+ 
+<div class="panel panel-footer">
+  <%= link_to "Apagar", @bonificacao,
+    method: :delete,
+    class: 'btn btn-danger btn-xs pull-right',
+      data: { confirm: 'Tem certeza que deseja apagar?' } %>
 </div>

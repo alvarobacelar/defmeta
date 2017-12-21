@@ -8,4 +8,6 @@ class Bonificacao < ApplicationRecord
             end
         end
     end
+    scope :verifica_competencia, -> (periodo) { where(periodo: periodo) }
+    scope :ano_bnf, -> (ano) { where("to_char(periodo, 'YYYY') = ?", ano.to_date.strftime('%Y')) }
 end

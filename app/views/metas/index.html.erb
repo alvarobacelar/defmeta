@@ -100,7 +100,13 @@
   <% end %>
 </table>
   <div class="panel panel-footer">
+  <% @bnf = Bonificacao.verifica_competencia(@mes_referencia) %>
+  <% if @bnf.present? %>
+    <a class="btn btn-success disabled">Mês fechado</a>
+    <%= link_to "Ver resultado", bonificacao_path(@bnf.first.id), class: "btn btn-primary" %>
+  <% else %>
     <%= link_to "Fechar mês", fechar_mes_metas_path(data_referencia: @mes_referencia), class: "btn btn-success", data: { confirm: 'Tem certeza que deseja fechar o mês?' } %>
+  <% end %>
   </div>
 </div>
 

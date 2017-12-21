@@ -4,7 +4,7 @@ class BonificacoesController < ApplicationController
   respond_to :html
 
   def index
-    @bonificacoes = Bonificacao.all
+    @bonificacoes = Bonificacao.all.order('periodo DESC')
     respond_with(@bonificacoes)
   end
 
