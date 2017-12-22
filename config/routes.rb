@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :slames
+  resources :sistemaslas
+  resources :gruposlas
   resources :bonificacoes
   resources :detalhamentos do
     get 'toogle_status',  on: :member

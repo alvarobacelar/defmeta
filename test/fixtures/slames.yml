@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sla: 9.99
+  periodo: 2017-12-22
+  sistemasla_id: 1
+
+two:
+  sla: 9.99
+  periodo: 2017-12-22
+  sistemasla_id: 1

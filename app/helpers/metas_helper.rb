@@ -17,9 +17,15 @@ module MetasHelper
   end
 
   def concluido(porcento)
+    porcento = 0
     if porcento == 100
       "success"
+    elsif porcento < 100 && porcento > 0
+      "warning"
+    else
+      "danger"
     end
   end
+  
 
 end

@@ -1,0 +1,1 @@
+json.partial! "gruposlas/gruposla", gruposla: @gruposla

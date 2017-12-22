@@ -10,10 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171221140223) do
+ActiveRecord::Schema.define(version: 20171222144806) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "adminpack"
 
   create_table "bonificacoes", force: :cascade do |t|
     t.integer  "quantidaden3"
@@ -72,6 +73,14 @@ ActiveRecord::Schema.define(version: 20171221140223) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "gruposlas", force: :cascade do |t|
+    t.string   "nome"
+    t.string   "descricao"
+    t.decimal  "slaaceitavel"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
   create_table "metas", force: :cascade do |t|
     t.string   "nome"
     t.integer  "tipo_id"
@@ -87,6 +96,23 @@ ActiveRecord::Schema.define(version: 20171221140223) do
     t.integer  "pontuacao"
     t.date     "datameta"
     t.boolean  "status"
+  end
+
+  create_table "sistemaslas", force: :cascade do |t|
+    t.string   "nome"
+    t.decimal  "slaaceitavel"
+    t.text     "descricao"
+    t.integer  "gruposla_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "slames", force: :cascade do |t|
+    t.decimal  "sla"
+    t.date     "periodo"
+    t.integer  "sistemasla_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "tipos", force: :cascade do |t|

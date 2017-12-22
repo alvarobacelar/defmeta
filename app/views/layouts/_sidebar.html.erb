@@ -25,6 +25,27 @@
         <i class="fa fa-tasks fa-fw"></i> Metas
         <% end %>
       </li>
+      <li>
+        <a href="#"><i class="fa fa-sliders fa-fw"></i> SLA<span class="fa arrow"></span></a>
+        <ul class="nav nav-second-level ">
+          <li>
+            <%= link_to slames_path, :class => ('active' if request.path =~/slames/) do %>
+              SLA Mensal
+            <% end %>
+          </li>
+          <li>
+            <%= link_to gruposlas_path, :class => ('active' if request.path =~/gruposlas/) do %>
+              Grupos
+            <% end %>
+          </li>
+          <li>
+            <%= link_to sistemaslas_path, :class => ('active' if request.path =~/sistemaslas/) do %>
+              Sistemas
+            <% end %>
+          </li>
+        </ul>
+        <!-- /.nav-second-level -->
+      </li>
       <li class="financeiro">
         <%= link_to bonificacoes_path, :class => ('active' if request.path =~/bonificacoes/) do %>
         <i class="fa fa-bar-chart-o fa-fw"></i> Resultados

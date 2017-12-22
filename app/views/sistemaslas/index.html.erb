@@ -1,0 +1,39 @@
+<div class="page-header">
+  <h1>Sistemas cadastrados</h1>
+  <%= link_to "Novo Sistemasla", new_sistemasla_path, class: 'btn btn-primary' %>
+</div>
+
+<div class="panel panel-default">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Grupo</th>
+        <th>SLA Aceitável</th>
+        <th class="text-center">SLA do mês</th>
+        <th class="text-right">Data cadastro</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @sistemaslas.each do |sistemasla| %>
+        <tr>
+          <td><%= link_to sistemasla.nome, sistemasla %></td>
+          <td><%= sistemasla.gruposla.nome %></td>
+          <td><%= sistemasla.slaaceitavel %></td>
+          <td class="text-center">
+            <% @sla_mes = Slame.do_mes(@mes_referencia, sistemasla.id).last %>
+            <% if @sla_mes.present? %>
+              <spam class="text-success fa fa-check-circle fa-1x"> </spam>
+            <% else %>
+              <spam class="text-danger fa fa-times-circle fa-1x"></spam>
+            <% end %>
+          </td>
+          <td class="text-right"><%= l sistemasla.created_at, format: :long %></td>
+          <td class="text-center"><%= link_to 'Registrar SLA', new_slame_path(sistemasla_id: sistemasla), class: 'btn btn-primary btn-xs' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

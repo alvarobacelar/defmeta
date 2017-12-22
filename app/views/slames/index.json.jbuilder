@@ -1,0 +1,1 @@
+json.array! @slames, partial: 'slames/slame', as: :slame

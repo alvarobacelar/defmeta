@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nome: MyString
+  slaaceitavel: 9.99
+  descricao: MyText
+  gruposla_id: 1
+
+two:
+  nome: MyString
+  slaaceitavel: 9.99
+  descricao: MyText
+  gruposla_id: 1

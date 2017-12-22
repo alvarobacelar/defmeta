@@ -1,0 +1,22 @@
+<div class="page-header">
+  <h1>
+    SLA <%= @slame.sistemasla.nome %> mês <%= l @slame.periodo, format: '%B' %>
+  </h1>
+  <div class="pull-right">
+    <%= link_to "Editar", edit_slame_path(@slame), class: 'btn btn-primary' %>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <table class="table">
+    <tr>
+      <td class="col-md-2">SLA registrado</td> <td><%= @slame.sla %>%</td>
+    </tr>
+    <tr>
+      <td class="col-md-2">SLA Aceitável</td> <td><%= @slame.sistemasla.slaaceitavel %>%</td>
+    </tr>
+    <tr>
+      <td>Data do cadastro</td> <td><%= l @slame.created_at %></td>
+    </tr>
+  </table>
+</div>

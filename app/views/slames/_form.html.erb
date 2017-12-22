@@ -1,0 +1,31 @@
+<%= simple_form_for(slame, multipart: true) do |f| %>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <% if slame.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(slame.errors.count, "erro") %></h2>
+
+      <ul>
+        <% slame.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+    <% end %>
+    <div class="row">
+      <%= f.association :sistemasla, collection: Sistemasla.all.order('nome'), label_method: :nome, label: "Sistema", wrapper_html: {class: 'col-md-3'} %>
+      <%= f.input :sla, label: "SLA",  wrapper_html: {class: 'col-md-3'} %>
+      <%= f.input :periodo,  wrapper_html: {class: 'col-md-4'} %>      
+    </div>
+  </div>
+
+  <div class="panel-footer">
+    <%= f.submit "Salvar", class: 'btn btn-primary' %> ou
+    <%= link_to "Cancelar", :back, class: 'btn btn-default' %>
+    <%= link_to "Apagar", @slame,
+    method: :delete,
+    class: 'btn btn-danger pull-right',
+    data: { confirm: 'Tem certeza que quer apagar?' } if @slame.persisted? %>
+  </div>
+</div>
+<% end %>

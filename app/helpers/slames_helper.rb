@@ -1,0 +1,2 @@
+module SlamesHelper
+end

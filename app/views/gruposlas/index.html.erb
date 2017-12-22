@@ -1,0 +1,28 @@
+<div class="page-header">
+  <h1>Gruposlas</h1>
+  <%= link_to "Novo Gruposla", new_gruposla_path, class: 'btn btn-primary' %>
+</div>
+
+<div class="panel panel-default">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Descrição</th>
+        <th>SLA aceitável</th>
+        <th>Data cadastro</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @gruposlas.each do |gruposla| %>
+        <tr>
+          <td><%= link_to gruposla.descricao, gruposla %></td>
+          <td><%= gruposla.slaaceitavel %>%</td>
+          <td><%= l gruposla.created_at, format: :long %></td>
+          <td><%= link_to 'Editar', edit_gruposla_path(gruposla), class: 'btn btn-default btn-xs' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,38 @@
+<div class="page-header">
+  <h1>SLA de <%= mes = l @mes_referencia, format: '%B' %></h1>
+  <div class="actions pull-right">
+    <h2 class="lvh-label">
+      <div class="btn-group">
+        <%= link_to "<i class='fa fa-angle-left'></i>".html_safe,  {:do_periodo => @mes_referencia - 1.month}, :class => 'btn btn-default' %>
+        <%= link_to mes, '', :class => 'btn btn-default' %>
+        <%= link_to "<i class='fa fa-angle-right'></i>".html_safe, {:do_periodo => @mes_referencia + 1.month}, :class => 'btn btn-default' %>
+      </div>
+    </h2>
+  </div>
+
+  <%= link_to "Novo Slame", new_slame_path, class: 'btn btn-primary pull-left' %>
+</div>
+
+<div class="panel panel-default">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Sistema</th>
+        <th>SLA registrado</th>
+        <th>Data cadastro</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @slames.each do |slame| %>
+        <tr>
+          <td><%= slame.sistemasla.nome %></td>
+          <td><%= slame.sla %>%</td>
+          <td><%= l slame.created_at, format: :long %></td>
+          <td><%= link_to 'Editar', edit_slame_path(slame), class: 'btn btn-default btn-xs' %></td>
+        </tr>
+      <% end %>      
+    </tbody>
+  </table>
+</div>

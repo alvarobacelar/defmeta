@@ -1,0 +1,25 @@
+<div class="page-header">
+  <h1>
+    <%= @sistemasla.nome %>
+  </h1>
+  <div class="pull-right">
+    <%= link_to "Editar", edit_sistemasla_path(@sistemasla), class: 'btn btn-primary' %>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <table class="table">
+    <tr>
+      <td class="col-md-2">SLA Aceitável</td> <td><%= @sistemasla.slaaceitavel %></td>
+    </tr>
+    <tr>
+      <td class="col-md-2">Grupo</td> <td><%= @sistemasla.gruposla.nome %></td>
+    </tr>
+    <tr>
+      <td class="col-md-2">Descrição</td> <td><%= @sistemasla.descricao %></td>
+    </tr>
+    <tr>
+      <td>Data do cadastro</td> <td><%= l @sistemasla.created_at %></td>
+    </tr>
+  </table>
+</div>

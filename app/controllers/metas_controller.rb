@@ -4,6 +4,8 @@ class MetasController < ApplicationController
   respond_to :html
   has_scope :periodo
   has_scope :com_responsavel
+  has_scope :metas_not_done
+  has_scope :meta_done
 
   BOM = "\377\376" #Byte Order Mark
   # require 'iconv'

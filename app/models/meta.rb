@@ -12,6 +12,8 @@ class Meta < ApplicationRecord
   scope :n1_todo, -> (datareferencia, nivel) { where(nivel: nivel, datameta: datareferencia.beginning_of_month..datareferencia.end_of_month) }
   scope :n1_done, -> (datareferencia, nivel) { where(nivel: nivel, status: true, datameta: datareferencia.beginning_of_month..datareferencia.end_of_month) }
   scope :metas_done_mes, -> (datareferencia) { where(status: true, datameta: datareferencia.beginning_of_month..datareferencia.end_of_month) }
+  scope :metas_not_done, -> (datareferencia) { where("to_char(datameta, 'MM') = ? AND status = ?", datareferencia.to_date.strftime('%m'), false) }
+  scope :meta_done, -> (datareferencia) { where("to_char(datameta, 'MM') = ? AND status = ?", datareferencia.to_date.strftime('%m'), true) }
   
   has_many :detalhamentos, dependent: :destroy
   accepts_nested_attributes_for :detalhamentos, :allow_destroy => true

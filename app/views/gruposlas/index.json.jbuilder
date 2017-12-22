@@ -1,0 +1,1 @@
+json.array! @gruposlas, partial: 'gruposlas/gruposla', as: :gruposla

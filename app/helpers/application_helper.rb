@@ -12,11 +12,11 @@ module ApplicationHelper
   end
 
   def logo_width
-    nil
+    '100'
   end
 
   def logo_header
-    nil
+    'logo.png'
   end
 
   def logo_header_width

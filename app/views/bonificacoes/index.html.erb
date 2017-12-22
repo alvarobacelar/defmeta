@@ -1,10 +1,12 @@
 <div class="page-header">
-  <h1>Bonificacoes</h1>  
+  <h1>Historico de Resultados</h1>  
 </div>
 
 <div class="panel panel-default">
-<%#= line_chart Bonificacao.ano_bnf(@bonificacoes.first.periodo) %>
-<%= line_chart Bonificacao.group_by_month(:periodo).maximum(:totalbnf) %>
+  <div class="panel-heading">
+  Valor agregado
+  </div>
+  <%= column_chart Bonificacao.group_by_month(:periodo, format: "%B/%Y").maximum(:totalbnf),  download: true %>
   <table class="table table-striped">
     <thead>
       <tr>
@@ -22,6 +24,34 @@
           <td><%= bonificacao.totalbnf * 10 %>%</td>
           <td><%= l bonificacao.created_at, format: :long %></td>
           <td><%= link_to 'Ver', bonificacao_path(bonificacao), class: 'btn btn-info btn-xs' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+  Qualidade
+  </div>
+  <%= column_chart Slame.group_by_month(:periodo, format: "%B/%Y").maximum(:sla),  download: true %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Mes competencia</th>
+        <th>SLA registrado</th>
+        <th>Data do fechamento</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @slames.each do |slame| %>
+        <tr>
+          <td><%= l slame.periodo, format: '%B'  %></td>
+          <td><%= slame.sla %>%</td>
+          <td><%= l slame.created_at, format: :long %></td>
+          <td><%= link_to 'Ver', slame_path(slame), class: 'btn btn-info btn-xs' %></td>
         </tr>
       <% end %>
     </tbody>

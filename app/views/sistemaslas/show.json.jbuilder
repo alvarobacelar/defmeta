@@ -1,0 +1,1 @@
+json.partial! "sistemaslas/sistemasla", sistemasla: @sistemasla

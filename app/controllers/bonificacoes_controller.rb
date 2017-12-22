@@ -5,6 +5,7 @@ class BonificacoesController < ApplicationController
 
   def index
     @bonificacoes = Bonificacao.all.order('periodo DESC')
+    @slames = Slame.all
     respond_with(@bonificacoes)
   end
 
