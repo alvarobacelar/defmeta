@@ -13,7 +13,7 @@ ENV RAILS_ENV=production \
     DOMAIN="defmetas.infoway-pi.com.br"
 
 # Use baseimage-docker's init system.
-CMD ["/usr/start.sh"]
+CMD ["/home/app/webapp/start.sh"]
 
 # Expose Nginx HTTP service
 EXPOSE 80
@@ -25,7 +25,6 @@ RUN rm -f /etc/service/nginx/down
 # Remove the default site
 RUN rm /etc/nginx/sites-enabled/default
 
-ADD start.sh /usr/start.sh
 # Add the nginx site and config
 ADD nginx.conf /etc/nginx/sites-enabled/webapp.conf
 ADD rails-env.conf /etc/nginx/main.d/rails-env.conf
