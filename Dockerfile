@@ -28,14 +28,6 @@ RUN rm /etc/nginx/sites-enabled/default
 ADD nginx.conf /etc/nginx/sites-enabled/webapp.conf
 ADD rails-env.conf /etc/nginx/main.d/rails-env.conf
 
-# Install requeriments 
-#RUN add-apt-repository ppa:upubuntu-com/office -y
-#RUN apt-get update && apt-get install wget
-#RUN wget sourceforge.net/projects/openofficeorg.mirror/files/4.1.1/binaries/en-GB/Apache_OpenOffice_4.1.1_Linux_x86-64_install-deb_en-GB.tar.gz
-#RUN tar -xzvf Apache_OpenOffice_4.1.1_Linux_x86-64_install-deb_en-GB.tar.gz -C /tmp
-#RUN cd /tmp/en-GB/DEBS && dpkg -i *.deb 
-#RUN apt-get install postgresql postgresql-contrib -y
-
 # Install bundle of gems
 WORKDIR /home/app/webapp
 #ADD Gemfile /tmp/
