@@ -6,7 +6,7 @@
   <div class="panel-heading">
   Valor agregado
   </div>
-  <%= column_chart Bonificacao.group_by_month(:periodo, format: "%B/%Y").maximum(:totalbnf),  download: true %>
+  <%= column_chart Bonificacao.group_by_month(:periodo, format: "%B/%Y").maximum(:totalbnf), legend: "bottom" %>
   <table class="table table-striped">
     <thead>
       <tr>
@@ -34,7 +34,7 @@
   <div class="panel-heading">
   Qualidade
   </div>
-  <%= column_chart Slame.group_by_month(:periodo, format: "%B/%Y").maximum(:sla),  download: true %>
+  <%= column_chart Slame.group_by_month(:periodo, format: "%B/%Y").maximum(:sla), legend: "bottom" %>
   <table class="table table-striped">
     <thead>
       <tr>
