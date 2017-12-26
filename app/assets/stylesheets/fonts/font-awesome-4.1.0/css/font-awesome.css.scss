@@ -6,8 +6,8 @@
  * -------------------------- */
 @font-face {
   font-family: 'FontAwesome';
-  src: url( asset-path("/assets/font-awesome-4.1.0/fonts/fontawesome-webfont.eot?v=4.1.0") );
-  src: url( asset-path('/assets/font-awesome-4.1.0/fonts/fontawesome-webfont.eot?#iefix&v=4.1.0') ) format('embedded-opentype'), url( asset-path('/assets/font-awesome-4.1.0/fonts/fontawesome-webfont.woff?v=4.1.0') ) format('woff'), url( asset-path('/assets/font-awesome-4.1.0/fonts/fontawesome-webfont.ttf?v=4.1.0') ) format('truetype'), url(asset-path('/assets/font-awesome-4.1.0/fonts/fontawesome-webfont.svg?v=4.1.0#fontawesomeregular') ) format('svg');
+  src: asset-url("font-awesome-4.1.0/fonts/fontawesome-webfont.eot?v=4.1.0");
+  src: asset-url('font-awesome-4.1.0/fonts/fontawesome-webfont.eot?#iefix&v=4.1.0') format('embedded-opentype'), asset-url('font-awesome-4.1.0/fonts/fontawesome-webfont.woff?v=4.1.0') format('woff'), asset-url('font-awesome-4.1.0/fonts/fontawesome-webfont.ttf?v=4.1.0') format('truetype'), asset-url('font-awesome-4.1.0/fonts/fontawesome-webfont.svg?v=4.1.0#fontawesomeregular') format('svg');
 /*
   src: url( asset-path("fonts/fontawesome-webfont.eot?v=4.1.0") );
   src: url( asset-path('fonts/fontawesome-webfont.eot?#iefix&v=4.1.0') ) format('embedded-opentype'), url( asset-path('fonts/fontawesome-webfont.woff?v=4.1.0') ) format('woff'), url( asset-path('fonts/fontawesome-webfont.ttf?v=4.1.0') ) format('truetype'), url(asset-path('fonts/fontawesome-webfont.svg?v=4.1.0#fontawesomeregular') ) format('svg');
