@@ -18,7 +18,6 @@ CMD ["/home/app/webapp/start.sh"]
 # Expose Nginx HTTP service
 EXPOSE 80
 
-
 # Start Nginx / Passenger
 RUN rm -f /etc/service/nginx/down
 
