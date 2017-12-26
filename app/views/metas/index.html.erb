@@ -43,8 +43,8 @@
 
     <tbody>
       <% @metas.each do |meta| %>
-      <% if meta.detalhamentos.present? %>
-      <% porcento = andamento(meta.id).to_i %>
+      <% if meta.detalhamentos.present? %>      
+      <% porcento = andamento(meta.id).to_i %>        
       <% end %>
       <tr>
         <td style="<%= background_meta(meta.nivel) %>" class="text-center"><strong><%= meta.nivel %></strong></td>
