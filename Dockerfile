@@ -13,7 +13,7 @@ ENV RAILS_ENV=production \
     DOMAIN="defmetas.infoway-pi.com.br"
 
 # Use baseimage-docker's init system.
-CMD ["/home/app/webapp/start.sh"]
+CMD ["/sbin/my_init"]
 
 # Expose Nginx HTTP service
 EXPOSE 80
@@ -37,7 +37,6 @@ WORKDIR /home/app/webapp
 VOLUME /home/app/webapp
 
 # Add the Rails app
-#ADD . /home/app/webapp
 RUN chown -R app:app /home/app/webapp
 
 # Clean up APT and bundler when done.
