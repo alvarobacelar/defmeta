@@ -1,24 +1,16 @@
-# README
+# Image for appllication with passeger
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Copy your aplication for path passeger-app
+```code 
+# cp app /home/passeger-app
+```
 
-Things you may want to cover:
+Bild image
+```code
+# docker build -t image-name .
+```
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Run container with image created
+```code
+# docker run -dit --name you-application -p 80:80 --env=''
+```

@@ -3,10 +3,12 @@
     <%= @meta.nome %>
   </h1>
 
-  <div class="pull-right">
-    <%= link_to "Editar", edit_meta_path(@meta), class: 'btn btn-primary' %>
-  </div>
+  <div class="pull-right" >
+    <%= link_to "Nova Meta", new_meta_path, class: 'btn btn-success' %>
 
+    <%= link_to "Editar", edit_meta_path(@meta), class: 'btn btn-primary' %>
+
+  </div>
 </div>
 
 <div class="col-lg-12">
