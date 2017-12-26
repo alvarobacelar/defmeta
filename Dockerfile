@@ -13,7 +13,7 @@ ENV RAILS_ENV=production \
     DOMAIN="defmetas.infoway-pi.com.br"
 
 # Use baseimage-docker's init system.
-CMD ["/sbin/my_init"]
+CMD ["start.sh"]
 
 # Expose Nginx HTTP service
 EXPOSE 80
