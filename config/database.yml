@@ -10,12 +10,7 @@ development:
   database: defmetas
   pool: 5
   username: postgres
-<<<<<<< HEAD
   password: n3g@t!v0
-=======
-  password: rootinfoway
-
->>>>>>> 05c1eb73f78153eb3e59e125399fc5ca240679aa
   host: 127.0.0.1
   port: 5432
 
