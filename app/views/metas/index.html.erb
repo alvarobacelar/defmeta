@@ -74,7 +74,7 @@
           <% end %>
           <% end %>
         </td>
-        <td class="<%= concluido(porcento) %>">
+        <td class="<%= concluido(porcento) %>" width='100'>
         <% if @bnf.present? %>
           <% if meta.status %>
             <spam class="texte-success fa fa-check-circle fa-2x"> </spam>
@@ -84,13 +84,9 @@
         <% else %>
             <% meta.detalhamentos.order('created_at').each do |item| %>
               <% if item.status %>
-                <p>
-                  <input onchange="toggle_status(<%= item.id %>);" checked type="checkbox" data-toggle="toggle" data-on="Concluída" data-off="Pendente" data-onstyle="success" data-size="mini" data-offstyle="default">
-                </p>
-                <% else %>
-                <p>
-                  <input onchange="toggle_status(<%= item.id %>);" type="checkbox" data-toggle="toggle" data-on="Concluída" data-off="Pendente" data-onstyle="success" data-size="mini" data-offstyle="default">
-                </p>
+                  <input onchange="toggle_status(<%= item.id %>);" checked type="checkbox" data-toggle="toggle" data-on="Feito" data-off="Pendente" data-onstyle="success" data-size="mini" data-offstyle="default">              
+                <% else %>                
+                  <input onchange="toggle_status(<%= item.id %>);" type="checkbox" data-toggle="toggle" data-on="Feito" data-off="Pendente" data-onstyle="success" data-size="mini" data-offstyle="default">                
               <% end %>
             <% end %>
         <% end %>
