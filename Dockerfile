@@ -41,6 +41,3 @@ RUN chown -R app:app /home/app/webapp
 
 # Clean up APT and bundler when done.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
-
-https://drive.google.com/file/d/15m8yevtLKX4tJKrheMHfLzc_mXbUcmwQ/view?usp=drivesdk
